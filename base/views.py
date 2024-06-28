@@ -11,13 +11,13 @@ from .forms import RoomForm
 
 # Create your views here.
 def home(request):
-    q = request.GET.get('q') if request.GET.get('q') ! = None else ''
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
     rooms = Room.objects.filter(topic__name=q)
     
     topics = Topic.objects.all()
     
     context = {'rooms':rooms, 'topics':topics}
-    return render(request, 'base/home.html', {'rooms':rooms})
+    return render(request, 'base/home.html', context)
 
 def room(request, pk):
     room = Room.objects.get(id=pk)
