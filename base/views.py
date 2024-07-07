@@ -114,7 +114,6 @@ def userProfile(request, pk):
 @login_required(login_url='login')    
 def createRoom(request):
     form = RoomForm()
-
     topics =Topic.objects.all()
     if request.method =='POST':
         topic_name = request.POST.get('topic')
